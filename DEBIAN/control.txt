@@ -1,9 +1,0 @@
-Package: xjobsidian
-Version: 0.0.1
-Section: base
-Priority: optional
-Architecture: all
-Depends: bash (>= 4.0)
-Maintainer: AstyCX tabaqui.jackal@pm.me
-Description: Tool, that makes note taking with obsidian and xournal++ easier
-
