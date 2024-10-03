@@ -66,7 +66,7 @@ notes_path="$notes_path"
 EOL
 
 # Move the script to /usr/local/bin to make it globally executable
-sudo cp ./usr/local/bin/xjobsidian.sh /usr/local/bin/xjobsidian
+sudo cp https://github.com/AstyCX/xjobsidian/blob/main/usr/local/bin/xjobsidian.sh /usr/local/bin/xjobsidian
 sudo chmod +x /usr/local/bin/xjobsidian
 
 echo "Configuration saved to ~/.xjobsidian_config"
