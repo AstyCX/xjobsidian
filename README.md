@@ -6,11 +6,10 @@ xjobsidian is a tool that makes note-taking with xournal++ and Obsidian easier.
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Features
-- Seamless note saving and obsidian - Xournal++ integration
+- Xournal++ & Obsidian seamless note taking integration
 - Easy setup and installation
 - Enhances productivity and note-taking efficiency
 
@@ -22,14 +21,32 @@ xjobsidian is a tool that makes note-taking with xournal++ and Obsidian easier.
 
 ### Steps
 1. Clone the repository:
-   ```sh
-   git clone https://github.com/AstyCX/xjobsidian.git
-
-Navigate into the directory:
-
+```sh
+git clone https://github.com/AstyCX/xjobsidian.git
+```
+2. Navigate into the directory:
+```sh
 cd xjobsidian
-
-Make the script executable and run it:
-
+```
+3. Make the script executable and run it:
+```sh
 chmod +x install.sh
 ./install.sh
+```
+4. Setting up the configuration
+- Provide absolute path to your Vault, Xournal++ template and folder inside of the Vault where you want to save new notes
+- Path **must** be in a format of $HOME/...
+- In order to change the configuration, navigate to ~/.xjobsidian_config
+
+## Usage
+```sh
+xjobsidian <folder> <title>
+```
+Creates a note **<title>** in $HOME/<yourpath>/<notes_folder>/<folder>
+
+If called without params, would ask for the params in the terminal
+```sh
+xjobsidian
+```
+
+## License
