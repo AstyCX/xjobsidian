@@ -44,7 +44,7 @@ xjobsidian <folder> <title>
 ```
 Creates a note **<title>** in $HOME/<yourpath>/<notes_folder>/<folder>
 
-If called without params, would ask for the params in the terminal
+If called without params, asks for the params in the terminal 
 ```sh
 xjobsidian
 ```
