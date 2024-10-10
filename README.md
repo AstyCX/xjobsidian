@@ -46,9 +46,9 @@ chmod +x install.sh
 
 ## Usage
 ```sh
-xjobsidian <folder> <title>
+xjobsidian <subfolder> <title>
 ```
-Creates a note **<title>** in $HOME/<yourpath>/<notes_folder>/<folder>
+Creates a note **<title>** in $HOME/<yourpath>/<notes_folder>/<subfolder>
 
 If called without params, asks for the params in the terminal 
 ```sh
