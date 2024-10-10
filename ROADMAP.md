@@ -12,4 +12,7 @@
   - [ ] Configuration flags: configure paths in configuration without rerunning the install.sh
 - [ ] Change the model from strictly school notes targeted to more widely targeted (terminal messages)
 - [ ] Change behaviour when called without params - create an Untitled in a configured directory
+
+- [ ] Migrate to Python
+
 - [ ] **YOUR PROPOSITIONS**
