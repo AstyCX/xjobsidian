@@ -1,6 +1,6 @@
 # XJObsidian
 
-XJObsidian is a tool that makes note-taking with xournal++ and Obsidian easier.
+XJObsidian is a tool that makes note-taking with xournal++ and Obsidian easier. The project ships with a portable installation script that works on Linux, macOS and Windows (via WSL).
 
 ## Table of Contents
 - [Roadmap](#roadmap)
@@ -24,8 +24,9 @@ View project's [Roadmap](./ROADMAP.md) and don't be shy to propose your changes 
 ### Prerequisites
 - Git
 - Bash
+- `xournalpp` and `inotifywait`
 
-### Steps
+### Steps (Linux, macOS or WSL)
 1. Clone the repository:
 ```sh
 git clone https://github.com/AstyCX/xjobsidian.git
@@ -39,6 +40,11 @@ cd xjobsidian
 chmod +x install.sh
 ./install.sh
 ```
+   - On **macOS** you may need Homebrew for dependencies:
+     ```sh
+     brew install xournalpp inotify-tools
+     ```
+   - On **Windows**, run the script inside a [WSL](https://learn.microsoft.com/windows/wsl/about) environment with the same prerequisites installed.
 4. Setting up the configuration
 - Provide absolute path to your **Vault**, **Xournal++ template** (that would be used by default to create new notes) and **path to a folder** inside of your Vault where you want to save new notes
 - Path **must** be in a format of $HOME/...

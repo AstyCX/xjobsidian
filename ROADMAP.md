@@ -15,4 +15,6 @@
 
 - [ ] Migrate to Python
 
+- [ ] Improve installation script for cross-platform support (Linux, macOS, WSL)
+
 - [ ] **YOUR PROPOSITIONS**

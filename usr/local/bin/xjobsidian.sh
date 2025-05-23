@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 if [ -f ~/.xjobsidian_config ]; then
     source ~/.xjobsidian_config
@@ -6,6 +6,11 @@ else
     echo "Error: Configuration file ~/.xjobsidian_config not found. Please run the installation script first."
     exit 1
 fi
+
+# Determine the correct command for opening files
+OS="$(uname -s)"
+open_cmd="xdg-open"
+[ "$OS" = "Darwin" ] && open_cmd="open"
 
 # Use the `vault_path` and `template_path` variables from the config file
 obsidian="$vault_path"
@@ -89,7 +94,7 @@ encoded_lesson=$(echo "$lesson" | sed 's/ /%20/g')
 encoded_topic=$(echo "$unique_topic" | sed 's/ /%20/g')
 
 # Use the Obsidian URI to open the markdown file
-xdg-open "obsidian://open?vault=$vault_name&file=School%20Notes/$encoded_lesson/$encoded_topic.md"
+$open_cmd "obsidian://open?vault=$vault_name&file=School%20Notes/$encoded_lesson/$encoded_topic.md"
 
 # Monitor the .xopp file for modifications and update the PDF
 while true; do
