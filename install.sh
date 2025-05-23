@@ -1,21 +1,49 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+
+# Detect operating system for package installation
+OS="$(uname -s)"
+
+# Detect if running under Windows Subsystem for Linux
+if grep -qi microsoft /proc/version 2>/dev/null; then
+    OS="WSL"
+fi
+
+install_cmd() {
+    case "$OS" in
+        Linux*|WSL*)
+            sudo apt update && sudo apt install -y "$1"
+            ;;
+        Darwin*)
+            if ! command -v brew &>/dev/null; then
+                echo "Homebrew is required to install $1. Please install Homebrew first: https://brew.sh" >&2
+                return 1
+            fi
+            brew install "$1"
+            ;;
+        *)
+            echo "Please install $1 manually for your platform." >&2
+            return 1
+            ;;
+    esac
+}
 
 # Check if required commands are available
 for cmd in xournalpp inotifywait; do
-    if ! command -v "$cmd" &> /dev/null; then
+    if ! command -v "$cmd" >/dev/null 2>&1; then
         read -p "Error: $cmd is not installed. Install it automatically? (y/n): " choice
         case "$choice" in
             y|Y )
-                sudo apt update
-                sudo apt install "$cmd"
-                sudo apt upgrade
+                install_cmd "$cmd" || {
+                    echo "$cmd is required. Exiting." >&2
+                    exit 1
+                }
                 ;;
             n|N )
-                echo "$cmd is required. Exiting."
+                echo "$cmd is required. Exiting." >&2
                 exit 1
                 ;;
             * )
-                echo "Invalid option. Please enter 'y' or 'n'."
+                echo "Invalid option. Please enter 'y' or 'n'." >&2
                 exit 1
                 ;;
         esac
@@ -51,7 +79,6 @@ fi
 notes_path="$notes_input"
 
 cat <<EOL > ~/.xjobsidian_config
-# ~/.xjobsidian_configcat <<EOL > ~/.xjobsidian_config
 # ~/.xjobsidian_config
 
 # Path to the Obsidian Vault
