@@ -1,5 +1,13 @@
 #!/usr/bin/bash
 
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    echo "Usage: xjobsidian [options] <lesson> <topic>"
+    echo ""
+    echo "Options:"
+    echo "  -h, --help    Show this help message and exit"
+    exit 0
+fi
+
 if [ -f ~/.xjobsidian_config ]; then
     source ~/.xjobsidian_config
 else
